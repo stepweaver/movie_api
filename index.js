@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/movies', (req, res) => {
-  res.send('My Top 10 Movies!');
+  res.json(topMovies);
 });
 
 app.use(express.static('public'));
