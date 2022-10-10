@@ -1,9 +1,8 @@
-const { application } = require('express');
-
 const express = require('express'),
   bodyParser = require('body-parser'),
   morgan = require('morgan'),
   fs = require('fs'),
+  uuid = require('uuid'),
   path = require('path');
 
 const app = express();
@@ -119,10 +118,14 @@ app.get('/', (req, res) => {
   res.send('Welcome to my awesome movies app!');
 });
 
+// Gets data for ALL movies
+// First line routes the request to the endpoint '/movies'
+// Second line defines the format of the response - a JSON object holding data about all movies
 app.get('/movies', (req, res) => {
   res.json(movies);
 });
 
+//Get data for a single movie, by title
 app.get('/movies/:title', (req, res) => {
   res.json(movies.find((movie) => {
     return movie.title === req.params.title
