@@ -18,6 +18,7 @@ let movies = [
     year: '2022',
     rating: 'PG-13',
     genre: 'Action, Crime, Drama',
+    stars: 'Robert Pattinson, Zoë Kravitz, Jeffrey Wright'
     director: 'Matt Reeves',
     description: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg'
@@ -77,6 +78,7 @@ let movies = [
     year: '2006',
     rating: 'PG-13',
     genre: 'Action, Adventure, Thriller',
+    stars: 'Daniel Craig, Eva Green, Judi Dench',
     director: 'Martin Campbell',
     description: 'After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker funding terrorists in a high-stakes game of poker at Casino Royale, Montenegro.',
     imageURL: 'https://m.media-amazon.com/images/M/MV5BYmI3MmMzMGMtNzc4Ni00YWQ4LWFkMDYtNjVlOWU3ZGZiNjY1XkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_.jpg'
@@ -86,6 +88,7 @@ let movies = [
     year: '1986',
     rating: 'PG-13',
     genre: 'Action, Adventure, Comedy',
+    stars: 'Kurt Russell, Kim Cattrall, Dennis Dun',
     director: 'John Carpenter',
     description: 'A rough-and-tumble trucker and his side kick face off with an ancient sorcerer in a supernatural battle beneath Chinatown.',
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNzlhYjEzOGItN2MwNS00ODRiLWE5OTItYThiNmJlMTdmMzgxXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg'
@@ -95,6 +98,7 @@ let movies = [
     year: '1995',
     rating: 'R',
     genre: 'Action, Drama, Sci-Fi',
+    stars: 'Keanu Reeves, Dolph Lundgren, Dina Meyer',
     director: 'Robert Longo',
     description: 'A data courier, literally carrying a data package inside his head, must deliver it before he dies from the burden or is killed by the Yakuza.',
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNTdhYjEzYTEtYTkwZC00NzgxLWI0ZWEtYmEyMGZhOWYwMjE2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg'
@@ -104,6 +108,7 @@ let movies = [
     year: '1990',
     rating: 'PG',
     genre: 'Action, Adventure, Comedy',
+    stars: 'Judith Hoag, Elias Koteas, Josh Pais',
     director: 'Steve Barron',
     description: 'Four teenage mutant ninja turtles emerge from the shadows to protect New York City from a gang of criminal ninjas.',
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNzg3NTQ4NDk5NV5BMl5BanBnXkFtZTgwNzMzNDg4NjE@._V1_.jpg'
@@ -116,6 +121,30 @@ app.get('/', (req, res) => {
 
 app.get('/movies', (req, res) => {
   res.json(movies);
+});
+
+app.get('/movies/:title', (req, res) => {
+  res.json(movies.find((movie) => {
+    return movie.title === req.params.title
+  }));
+});
+
+app.get('/movies/:genre', (req, res) => {
+  res.json(movies.find((genre) => {
+    return genre.genre === req.params.genre
+  }));
+});
+
+app.get('/movies/:director', (req, res) => {
+  res.json(movies.find((director) => {
+    return director.director === req.params.director
+  }));
+});
+
+app.get('/movies/:stars', (req, res) => {
+  res.json(movies.find((stars) => {
+    return stars.stars === req.params.stars
+  }));
 });
 
 app.use(express.static('public'));
