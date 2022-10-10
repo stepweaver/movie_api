@@ -18,7 +18,7 @@ let movies = [
     year: '2022',
     rating: 'PG-13',
     genre: 'Action, Crime, Drama',
-    stars: 'Robert Pattinson, Zoë Kravitz, Jeffrey Wright'
+    stars: 'Robert Pattinson, Zoë Kravitz, Jeffrey Wright',
     director: 'Matt Reeves',
     description: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg'
