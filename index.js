@@ -123,33 +123,7 @@ app.get('/movies', (req, res) => {
     return movie.name === req.params.name
   }));
 
-// app.get('/movies/genre/:genreName', (req, res) => {
-//   const { genreName } = req.params
-//   const genre = movies.find(movie => movie.genre.name === genreName).genre;
-
-//   if (genre) {
-//     res.status(200).json(genre);
-//   } else {
-//     res.status(404).send('Title not found')
-//   }
-// });
-
-// app.get('/', (req, res) => {
-//   res.send('Welcome to my awesome movies app!');
-// });
-
-// app.get('/movies/:director', (req, res) => {
-//   res.json(movies.find((director) => {
-//     return director.director === req.params.director
-//   }));
-// });
-
-// app.get('/movies/:stars', (req, res) => {
-//   res.json(movies.find((stars) => {
-//     return stars.stars === req.params.stars
-//   }));
-// });
-
-app.listen(8080, () => {
-  console.log('Your app is listening on port 8080.');
+  app.listen(8080, () => {
+    console.log('Your app is listening on port 8080.');
+  });
 });
