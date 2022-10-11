@@ -1,26 +1,25 @@
 const express = require('express'),
-  bodyParser = require('body-parser'),
-  morgan = require('morgan'),
-  fs = require('fs'),
-  uuid = require('uuid'),
-  path = require('path');
-
-const app = express();
-
-app.use(bodyParser.json());
-
-app.use(morgan('common'));
+  app = express(),
+  bodyParser = require('body')
 
 let movies = [
   {
     title: 'The Batman',
     year: '2022',
     rating: 'PG-13',
-    genre: 'Action, Crime, Drama',
-    stars: 'Robert Pattinson, Zoë Kravitz, Jeffrey Wright',
-    director: 'Matt Reeves',
     description: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
-    imageURL: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg'
+    genre: {
+      name: 'Action',
+      description: 'Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats.'
+    },
+    director: {
+      name: 'Matt Reeves',
+      bio: 'Matthew George "Matt" Reeves was born Aril 17, 1966 in Rockville Center, New York, USA and is a writer, director and producer. Reeves began making movies at age eight, directing friends and using a wind-up camera. He befriended filmmaker J.J. Abrams when both were 13 years old and a public-access television cable channel, Z Channel, aired their short films. When Reeves and Abrams were 15 or 16 years old, Steven Spielberg hired them to transfer some of his own Super 8 films to videotape. Reeves attended the University of Southern California and there, between 1991 and 1992, he produced an award-winning student film, Mr. Petrified Forest, which helped him acquire an agent. He also co-wrote a script that eventually became Under Siege 2: Dark Territory (1995). After graduating, he co-wrote The Pallbearer (1996), which became his directorial debut.',
+      birth: 'April 27, 1966'
+    },
+    stars: 'Robert Pattinson, Zoë Kravitz, Jeffrey Wright',
+    imageURL: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg',
+    featured: false
   },
   {
     title: 'The Dark Knight',
@@ -114,48 +113,42 @@ let movies = [
   },
 ];
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my awesome movies app!');
-});
-
-// Gets data for ALL movies
-// First line routes the request to the endpoint '/movies'
-// Second line defines the format of the response - a JSON object holding data about all movies
+// READ
 app.get('/movies', (req, res) => {
-  res.json(movies);
+  res.status(200).json(movies)
 });
 
-//Get data for a single movie, by title
-app.get('/movies/:title', (req, res) => {
+app.get('/movies', (req, res) => {
   res.json(movies.find((movie) => {
-    return movie.title === req.params.title
+    return movie.name === req.params.name
   }));
-});
 
-app.get('/movies/:genre', (req, res) => {
-  res.json(movies.find((genre) => {
-    return genre.genre === req.params.genre
-  }));
-});
+// app.get('/movies/genre/:genreName', (req, res) => {
+//   const { genreName } = req.params
+//   const genre = movies.find(movie => movie.genre.name === genreName).genre;
 
-app.get('/movies/:director', (req, res) => {
-  res.json(movies.find((director) => {
-    return director.director === req.params.director
-  }));
-});
+//   if (genre) {
+//     res.status(200).json(genre);
+//   } else {
+//     res.status(404).send('Title not found')
+//   }
+// });
 
-app.get('/movies/:stars', (req, res) => {
-  res.json(movies.find((stars) => {
-    return stars.stars === req.params.stars
-  }));
-});
+// app.get('/', (req, res) => {
+//   res.send('Welcome to my awesome movies app!');
+// });
 
-app.use(express.static('public'));
+// app.get('/movies/:director', (req, res) => {
+//   res.json(movies.find((director) => {
+//     return director.director === req.params.director
+//   }));
+// });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('What did you do!?');
-});
+// app.get('/movies/:stars', (req, res) => {
+//   res.json(movies.find((stars) => {
+//     return stars.stars === req.params.stars
+//   }));
+// });
 
 app.listen(8080, () => {
   console.log('Your app is listening on port 8080.');
