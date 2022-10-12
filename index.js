@@ -8,6 +8,21 @@ const express = require('express'),
 app.use(bodyParser.json());
 app.use(morgan('common'));
 
+let users = [
+  {
+    id: 1,
+    name: 'Stephen',
+    favoriteMovies: [
+      'Fight Club'
+    ]
+  },
+  {
+    id: 2,
+    name: 'Mike',
+    favoriteMovies: []
+  },
+];
+
 let movies = [
   {
     title: 'The Batman',
@@ -98,28 +113,23 @@ let movies = [
     featured: false
   },
   {
-    title: 'The Matrix',
+    title: 'Fight Club',
     year: '1999',
     rating: 'R',
-    description: 'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
+    description: 'An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.',
     genre: {
-      name: 'Action',
-      description: 'Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats.',
+      name: 'Drama',
+      description: 'In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. A primary element in a drama is the occurrence of conflict—emotional, social, or otherwise—and its resolution in the course of the storyline.',
     },
     director: {
-      name: 'Lana Wachowski',
-      bio: "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind such ground-breaking movies as The Matrix (1999) and Cloud Atlas (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly. After the siblings dropped out of college, they started a construction business and wrote screenplays. Their 1995 script, Assassins (1995), was made into a movie, leading to a Warner Bros contract. After that time, the Wachowskis devoted themselves to their movie careers. In 2012, during interviews for Cloud Atlas and in her acceptance speech for the Human Rights Campaign's Visibility Award, Lana spoke about her experience of being a transgender woman, sacrificing her much cherished anonymity out of a sense of responsibility. Lana is known to be extremely well-read, loves comic books and exploring ideas of imaginary worlds, and was inspired by Stanley Kubrick's 2001: A Space Odyssey (1968) in creating Cloud Atlas.",
-      birth: 'June 21, 1965'
-    },
-    director: {             // TEST! WILL THIS WORK WITH TWO OBJECTS BY THE SAME NAME?
-      name: 'Lilly Wachowski',  
-      bio: "Director, writer, and producer Lilly Wachowski was born in 1967 in Chicago, the daughter of Lynne, a nurse and painter, and Ron, a businessman. Lilly was educated at Kellogg Elementary School in Chicago, before moving on to Whitney M. Young High School. After graduating from high school, she attended Emerson College in Boston but dropped out. Lilly teamed up with her older sibling, Lana Wachowski, and began working on films. Their first script was optioned and formed the basis for the film Assassins (1995). The Wachowskis went on to make their directorial debut with the self-written Bound (1996), which was well-received. They followed this with the smash hit The Matrix (1999) and went on to produce two successful sequels, The Matrix Reloaded (2003) and The Matrix Revolutions (2003).",
-      birth: 'December 29, 1967'
+      name: 'David Fincher',
+      bio: "David Fincher was born in 1962 in Denver, Colorado, and was raised in Marin County, California. When he was 18 years old he went to work for John Korty at Korty Films in Mill Valley. He subsequently worked at ILM (Industrial Light and Magic) from 1981-1983. Fincher left ILM to direct TV commercials and music videos after signing with N. Lee Lacy in Hollywood. He went on to found Propaganda in 1987 with fellow directors Dominic Sena, Greg Gold and Nigel Dick. Fincher has directed TV commercials for clients that include Nike, Coca-Cola, Budweiser, Heineken, Pepsi, Levi's, Converse, AT&T and Chanel. He has directed music videos for Madonna, Sting, The Rolling Stones, Michael Jackson, Aerosmith, George Michael, Iggy Pop, The Wallflowers, Billy Idol, Steve Winwood, The Motels and, most recently, A Perfect Circle.",
+      birth: 'August 28, 1962'
     },
     stars: {
-      name: 'Keanu Reeves',
-      name: 'Laurence Fishburne',
-      name: 'Carrie-Anne Moss'
+      name: 'Brad Pitt',
+      name: 'Edward Norton',
+      name: 'Meatloaf'
     },
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
     featured: false
@@ -235,6 +245,32 @@ let movies = [
   },
 ];
 
+// CREATE
+app.post('/users', (req, res) => {
+  const newUser = req.body;
+
+  if (newUser.name) {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).json(newUser);
+  } else {
+    res.status(400).send("User's name not entered")
+  }
+});
+
+app.post('/users/:id/:movieTitle', (req, res) => {
+  const { id, movieTitle } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies.push(movieTitle);
+    res.status(200).send(`${movieTitle} has been added to user ${id}'s array`);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
 // READ
 app.get('/movies', (req, res) => {
   res.status(200).json(movies)
@@ -243,7 +279,7 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:title', (req, res) => {
   const { title } = req.params;
   const movie = movies.find(movie => movie.title === title);
-
+  
   if (movie) {
     res.status(200).json(movie);
   } else {
@@ -254,11 +290,64 @@ app.get('/movies/:title', (req, res) => {
 app.get('/movies/genre/:genreName', (req, res) => {
   const { genreName } = req.params;
   const genre = movies.find(movie => movie.genre.name === genreName).genre;
-
+  
   if (genre) {
     res.status(200).json(genre);
   } else {
     res.status(404).send('Genre not found');
+  }
+});
+
+app.get('/movies/director/:directorName', (req, res) => {
+  const { directorName } = req.params;
+  const director = movies.find(movie => movie.director.name === directorName).director;
+
+  if (director) {
+    res.status(200).json(director);
+  } else {
+    res.status(404).send('Director not found');
+  }
+});
+
+// UPDATE
+app.put('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const updatedUser = req.body;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.name = updatedUser.name;
+    res.status(200).json(user);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+// DELETE
+app.delete('/users/:id/:movieTitle', (req, res) => {
+  const { id, movieTitle } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies = user.favoriteMovies.filter(title => title != movieTitle);
+    res.status(200).send(`${movieTitle} has been removed to user ${id}'s array`);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+app.delete('/users/:id', (req, res) => {
+  const { id } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    users = users.filter(user => user.id != id);
+    res.status(200).send(`User ${id}, ${user.name}, has been deregistered`);
+  } else {
+    res.status(404).send('User not found');
   }
 });
 
