@@ -7,6 +7,7 @@ const express = require('express'),
 
 app.use(bodyParser.json());
 app.use(morgan('common'));
+app.use(express.static('public'));
 
 let users = [
   {
@@ -265,7 +266,7 @@ app.post('/users/:id/:movieTitle', (req, res) => {
 
   if (user) {
     user.favoriteMovies.push(movieTitle);
-    res.status(200).send(`${movieTitle} has been added to user ${id}'s array`);
+    res.status(201).send(`${movieTitle} has been added to user ${id}`);
   } else {
     res.status(404).send('User not found');
   }
@@ -332,7 +333,7 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
 
   if (user) {
     user.favoriteMovies = user.favoriteMovies.filter(title => title != movieTitle);
-    res.status(200).send(`${movieTitle} has been removed to user ${id}'s array`);
+    res.status(200).send(`${movieTitle} has been removed from user ${id}`);
   } else {
     res.status(404).send('User not found');
   }
