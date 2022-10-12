@@ -9,10 +9,83 @@
 <body>
   <h1>Achievement 2 Project: myFlix</h1>
   <p>To build the server-side component of a "movies" web application. The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
-  <p>In the POST request above, the newStudent object is formatted in a specific way (it includes the student name, their
-  classes, and the grades in those classes). While you know this specific format because you created the database and the
-  API, clients wishing to use your API wouldn't automatically know the correct format they need to write their objects in.
-  This type of information would need to be included in the documentation of your API. Without it, clients would have a
-  pretty tough time getting their apps to work!</p>
+  <p>I've created an array of my top 10 favorite movies!</p>
+  <p>Users can view my top 10 favorite movies, request data about a single movie by title, or about a single genre, or director.</p>
+  <p>Users may also register their names and are assigned a unique ID number, using npm uuid.</p>
+  <p>Existing users may update their user names, add or remove their favorite movies, or deregister</p>
+
+  <table>
+    <tr>
+      <th>Business Logic</th>
+      <th>URL</th>
+      <th>HTTP Method</th>
+      <th>Request body data format</th>
+      <th>Respond body data format</th>
+    </tr>
+    <tr>
+      <td>Return a list of ALL movies to the user</td>
+      <td>/movies</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about ALL movies</td>
+    </tr>
+    <tr>
+      <td>Return data about a single movie, by title</td>
+      <td>/movies/[title]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about the movie containing title, year, description, genre, director, stars, imageURL, and whether the movie is featured</td>
+    </tr>
+    <tr>
+      <td>Return data about a genre, by name</td>
+      <td>/movies/genre/[name]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data the genre category and a description of the genre</td>
+    </tr>
+    <tr>
+      <td>Return data about a director, by name</td>
+      <td>/movies/director/[name]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about director - name, bio, and birthdate</td>
+    </tr>
+    <tr>
+      <td>Allow users to register</td>
+      <td>/users</td>
+      <td>POST</td>
+      <td>A JSON object holding data about the new user to register, structured like: </br>{ </br>  name: 'Stephen Weaver', </br> favoriteMovies: [] </br> }</td>
+      <td>A JSON object holding data about the new user registered - new user name, unique id number and favoriteMovies</td>
+    </tr>
+    <tr>
+      <td>Allow users to update their user name</td>
+      <td>/users/[id]</td>
+      <td>PUT</td>
+      <td>A JSON object holding data about the user's name to be updated, by unique id number, </br>structured like: </br>{ </br> name: 'Stephen Weaver', </br> favoriteMovies: [] </br> }</td>
+      <td>A JSON object holding data about the user's name updated - updated name, unique id number and favoriteMovies </td>
+    </tr>
+    <tr>
+      <td>Allow users to add a movie to their list of favorites</td>
+      <td>/users/id/[favoriteMovies]</td>
+      <td>POST</td>
+      <td>None</td>
+      <td>A text message indicating the user's favoriteMovies title was updated with the new title, structured like:
+        </br>favoriteMovies has been added to user x</td>
+    </tr>
+    <td>Allow users to remove a movie from their list</td>
+    <td>/users/id/[favoriteMovies]</td>
+    <td>DELETE</td>
+    <td>None</td>
+    <td>A text message indicating the user's favoriteMovies title was removed, structured like:
+      </br>favoriteMovies has been removed from user x</td>
+    </tr>
+    <td>Allow existing users to deregister</td>
+    <td>/users/[id]</td>
+    <td>DELETE</td>
+    <td>None</td>
+    <td>A text message indicating the user has been deregistered, structured like:
+      </br>User [id], [name], has been deregistered</td>
+    </tr>
+  </table>
 </body>
 </html>
