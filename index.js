@@ -26,6 +26,7 @@ let users = [
 
 let movies = [
   {
+    id: 1001,
     title: 'The Batman',
     year: '2022',
     rating: 'PG-13',
@@ -43,6 +44,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1002,
     title: 'The Dark Knight',
     year: '2008',
     rating: 'PG-13',
@@ -60,6 +62,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1003,
     title: "Ocean's Eleven",
     year: '2001',
     rating: 'PG-13',
@@ -77,6 +80,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1004,
     title: "Grandma's Boy",
     year: '2006',
     rating: 'R',
@@ -94,6 +98,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1005,
     title: 'Fight Club',
     year: '1999',
     rating: 'R',
@@ -111,6 +116,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1006,
     title: 'John Wick',
     year: '2014',
     rating: 'R',
@@ -128,6 +134,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1007,
     title: 'Casino Royale',
     year: '2006',
     rating: 'PG-13',
@@ -145,6 +152,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1008,
     title: 'Big Trouble in Little China',
     year: '1986',
     rating: 'PG-13',
@@ -162,6 +170,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1009,
     title: 'Johnny Mnemonic',
     year: '1995',
     rating: 'R',
@@ -178,6 +187,7 @@ let movies = [
     featured: false
   },
   {
+    id: 1010,
     title: 'Teenage Mutant Ninja Turtles',
     year: '1990',
     rating: 'PG',
