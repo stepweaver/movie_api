@@ -70,7 +70,7 @@ let movies = [
     },
     director: {
       name: 'Steven Soderbergh',
-      bio: "Steve Andrew Soderbergh was born on January 14, 1963 in Atlanta, Georgia, USA, the second of six ",
+      bio: `Steven Andrew Soderbergh was born on January 14, 1963 in Atlanta, Georgia, USA, the second of six children of Mary Ann (Bernard) and Peter Soderbergh. His father was of Swedish and Irish descent, and his mother was of Italian ancestry. While he was still at a very young age, his family moved to Baton Rouge, Louisiana, where his father was a professor and the dean of the College of Education at Louisiana State University. While still in high school, around the age of 15, Soderbergh enrolled in the university's film animation class and began making short 16-millimeter films with second-hand equipment, one of which was the short film "Janitor". After graduating high school, he went to Hollywood, where he worked as a freelance editor. His time there was brief and, shortly after, he returned home and continued making short films and writing scripts.`,
       birth: 'January 14, 1963'
     },
     imageURL: 'https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg',
@@ -121,7 +121,7 @@ let movies = [
     },
     director: {
       name: 'Chad Stahelski',
-      bio: "He came from a kick-boxing background; he entered the film field as a stunt performer at the age of 24. Before that, he worked as an instructor at the Inosanto Martial Arts Academy in California, teaching Jeet Kune Do/Jun Fan. After doing numerous roles in low budget martial art movies like Mission of Justice (1992) and Bloodsport III (1996) his first start as a stunt double came from the movie The Crow (1994) for doubling late Brandon Lee whom he trained with at the Inosanto Academy. After Brandon Lee's lethal accident Chad was picked for his stunt/photo double because he knew Lee, how he moved, and looked more like him than any other stuntman. His greatest break as a stunt man came when he hooked up with Keanu Reeves on The Matrix (1999). He worked as martial arts stunt coordinator in its following sequels and doubled Keanu Reeves for extreme shots. He also formed a company called Smashcut with his stunt colleagues which was responsible for cool stunts in some of the greatest movies and series.",
+      bio: "He came from a kick-boxing background; he entered the film field as a stunt performer at the age of 24. Before that, he worked as an instructor at the Inosanto Martial Arts Academy in California, teaching Jeet Kune Do/Jun Fan. After doing numerous roles in low budget martial art movies like Mission of Justice (1992) and Bloodsport III (1996) his first start as a stunt double came from the movie The Crow (1994) for doubling late Brandon Lee whom he trained with at the Inosanto Academy. After Brandon Lee's lethal accident Chad was picked for his stunt/photo double because he knew Lee, how he moved, and looked more like him than any other stuntman.",
       birth: 'September 20, 1968'
     },
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg',
