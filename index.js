@@ -172,7 +172,8 @@ let movies = [
     },
     director: {
       name: 'Robert Longo',
-      bio: 'Robert Longo was born on January 7, 1953 in Brooklyn, New York, USA. He is a director and writer, known for Johnny Mnemonic (1995), R.E.M.: The One I Love (1987) and Arena Brains (1987).'
+      bio: 'Robert is a director and writer, known for Johnny Mnemonic (1995), R.E.M.: The One I Love (1987) and Arena Brains (1987).',
+      birth: 'January 7, 1953'
     },
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNTdhYjEzYTEtYTkwZC00NzgxLWI0ZWEtYmEyMGZhOWYwMjE2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg',
     featured: false
