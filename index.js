@@ -20,13 +20,15 @@ let users = [
   {
     id: 2,
     name: 'Mike',
-    favoriteMovies: []
+    favoriteMovies: [
+      "Grandma's Boy"
+    ]
   },
   {
     id: 3,
     name: 'Kathy',
     favoriteMovies: [
-      "Grandma's Boy"
+      "Ocean's Eleven"
     ]
   }
 ];
