@@ -60,6 +60,23 @@ let movies = [
     featured: false
   },
   {
+    title: 'Memento',
+    year: '2000',
+    rating: 'R',
+    description: "A man with short-term memory loss attempts to track down his wife's murderer.",
+    genre: {
+      name: 'Mystery',
+      description: 'A mystery film is a genre of film that revolves around the solution of a problem or a crime. It focuses on the efforts of the detective, private investigator or amateur sleuth to solve the mysterious circumstances of an issue by means of clues, investigation, and clever deduction.'
+    },
+    director: {
+      name: 'Christopher Nolan',
+      bio: 'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
+      birth: 'July 30, 1970'
+    },
+    imageURL: 'https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
+    featured: false
+  },
+  {
     title: "Ocean's Eleven",
     year: '2001',
     rating: 'PG-13',
