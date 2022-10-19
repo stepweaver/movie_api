@@ -48,8 +48,11 @@ let movies = [
       bio: 'Matthew George "Matt" Reeves was born Aril 17, 1966 in Rockville Center, New York, USA and is a writer, director and producer. Reeves began making movies at age eight, directing friends and using a wind-up camera. He befriended filmmaker J.J. Abrams when both were 13 years old and a public-access television cable channel, Z Channel, aired their short films. When Reeves and Abrams were 15 or 16 years old, Steven Spielberg hired them to transfer some of his own Super 8 films to videotape. Reeves attended the University of Southern California and there, between 1991 and 1992, he produced an award-winning student film, Mr. Petrified Forest, which helped him acquire an agent. He also co-wrote a script that eventually became Under Siege 2: Dark Territory (1995). After graduating, he co-wrote The Pallbearer (1996), which became his directorial debut.',
       birth: 'April 27, 1966'
     },
+    actors: [
+      'Robert Pattinson', 'Zoe Kravitz', 'Jeffrey Wright'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg',
-    featured: false
+    featured: true
   },
   {
     title: 'The Dark Knight',
@@ -65,6 +68,9 @@ let movies = [
       bio: 'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
       birth: 'July 30, 1970'
     },
+    actors: [
+      'Christian Bale', 'Heath Ledger', 'Aaron Eckhart'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg',
     featured: false
   },
@@ -82,6 +88,9 @@ let movies = [
       bio: 'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
       birth: 'July 30, 1970'
     },
+    actors: [
+      'Guy Pearce', 'Carrie-Anne Moss', 'Joe Pantoliano'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
     featured: false
   },
@@ -99,6 +108,9 @@ let movies = [
       bio: `Steven Andrew Soderbergh was born on January 14, 1963 in Atlanta, Georgia, USA, the second of six children of Mary Ann (Bernard) and Peter Soderbergh. His father was of Swedish and Irish descent, and his mother was of Italian ancestry. While he was still at a very young age, his family moved to Baton Rouge, Louisiana, where his father was a professor and the dean of the College of Education at Louisiana State University. While still in high school, around the age of 15, Soderbergh enrolled in the university's film animation class and began making short 16-millimeter films with second-hand equipment, one of which was the short film "Janitor". After graduating high school, he went to Hollywood, where he worked as a freelance editor. His time there was brief and, shortly after, he returned home and continued making short films and writing scripts.`,
       birth: 'January 14, 1963'
     },
+    actors: [
+      'Goerge Clooney', 'Brad Pitt', 'Jula Roberts'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg',
     featured: false
   },
@@ -116,6 +128,9 @@ let movies = [
       bio: "Nicholaus Goossen is known for Grandma's Boy (2006), Hustle (2022) and Hot for My Name (2020).",
       birth: 'August 18, 1978',
     },
+    actors: [
+      'Allen Covert', 'Linda Cardellini', 'Shirley Jones'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMDFiYzQ0NzktMGNkNy00YTQ0LTgxODgtNDViNGIxMTc1NGFjL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
     featured: false
   },
@@ -133,6 +148,9 @@ let movies = [
       bio: "David Fincher was born in 1962 in Denver, Colorado, and was raised in Marin County, California. When he was 18 years old he went to work for John Korty at Korty Films in Mill Valley. He subsequently worked at ILM (Industrial Light and Magic) from 1981-1983. Fincher left ILM to direct TV commercials and music videos after signing with N. Lee Lacy in Hollywood. He went on to found Propaganda in 1987 with fellow directors Dominic Sena, Greg Gold and Nigel Dick. Fincher has directed TV commercials for clients that include Nike, Coca-Cola, Budweiser, Heineken, Pepsi, Levi's, Converse, AT&T and Chanel. He has directed music videos for Madonna, Sting, The Rolling Stones, Michael Jackson, Aerosmith, George Michael, Iggy Pop, The Wallflowers, Billy Idol, Steve Winwood, The Motels and, most recently, A Perfect Circle.",
       birth: 'August 28, 1962'
     },
+    actors: [
+      'Brad Pitt', 'Edward Norton', 'Meat Loaf'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
     featured: false
   },
@@ -150,6 +168,9 @@ let movies = [
       bio: "He came from a kick-boxing background; he entered the film field as a stunt performer at the age of 24. Before that, he worked as an instructor at the Inosanto Martial Arts Academy in California, teaching Jeet Kune Do/Jun Fan. After doing numerous roles in low budget martial art movies like Mission of Justice (1992) and Bloodsport III (1996) his first start as a stunt double came from the movie The Crow (1994) for doubling late Brandon Lee whom he trained with at the Inosanto Academy. After Brandon Lee's lethal accident Chad was picked for his stunt/photo double because he knew Lee, how he moved, and looked more like him than any other stuntman.",
       birth: 'September 20, 1968'
     },
+    actors: [
+      'Keanu Reeves', 'Michael Nyqvist', 'Alfie Allen'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg',
     featured: false
   },
@@ -167,6 +188,9 @@ let movies = [
       bio: "Martin Campbell knows how to entertain an audience when he steps behind the camera. When he directed The Mask of Zorro (1998), the movie earned Academy Award and Golden Globe nominations and launched the international careers of Antonio Banderas and Catherine Zeta-Jones. Next, when he helmed Vertical Limit (2000), the film was well received by the critics and earned over $200 million in worldwide box-office sales. In addition, Campbell is credited with rejuvenating the James Bond franchise when he directed GoldenEye (1995), Pierce Brosnan's first outing as the famed British spy, which went on to gross more than $350 million. He also directed Daniel Craig's debut Bond feature as well, Casino Royale (2006).",
       birth: 'October 24, 1943'
     },
+    actors: [
+      'Daniel Craig', 'Eva Green', 'Judi Dench'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BYmI3MmMzMGMtNzc4Ni00YWQ4LWFkMDYtNjVlOWU3ZGZiNjY1XkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_.jpg',
     featured: false
   },
@@ -184,6 +208,9 @@ let movies = [
       bio: 'John Howard Carpenter was born in Carthage, New York, to mother Milton Jean (Carter) and father Howard Ralph Carpenter. His family moved to Bowling Green, Kentucky, where his father, a professor, was head of the music department at Western Kentucky University. He attended Western Kentucky University and then USC film school in Los Angeles. He began making short films in 1962, and won an Academy Award for Best Live-Action Short Subject in 1970, for The Resurrection of Broncho Billy (1970), which he made while at USC. Carpenter formed a band in the mid-1970s called The Coupe de Villes, which included future directors Tommy Lee Wallace and Nick Castle. Since the 1970s, he has had numerous roles in the film industry including writer, actor, composer, producer, and director. After directing Dark Star (1974), he has helmed both classic horror films like Halloween (1978), The Fog (1980), and The Thing (1982), and noted sci-fi tales like Escape from New York (1981) and Starman (1984).',
       birth: 'January 16, 1948'
     },
+    actors: [
+      'Kurt Russell', 'Kim Cattrell', 'Dennis Dun'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNzlhYjEzOGItN2MwNS00ODRiLWE5OTItYThiNmJlMTdmMzgxXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
     featured: false
   },
@@ -201,24 +228,10 @@ let movies = [
       bio: 'Robert is a director and writer, known for Johnny Mnemonic (1995), R.E.M.: The One I Love (1987) and Arena Brains (1987).',
       birth: 'January 7, 1953'
     },
+    actors: [
+      'Keanu Reeves', 'Dolph Lundgren', 'Dina Meyer'
+    ],
     imageURL: 'https://m.media-amazon.com/images/M/MV5BNTdhYjEzYTEtYTkwZC00NzgxLWI0ZWEtYmEyMGZhOWYwMjE2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg',
-    featured: false
-  },
-  {
-    title: 'Teenage Mutant Ninja Turtles',
-    year: '1990',
-    rating: 'PG',
-    description: 'Four teenage mutant ninja turtles emerge from the shadows to protect New York City from a gang of criminal ninjas.',
-    genre: {
-      name: 'Action',
-      description: 'Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats.'
-    },
-    director: {
-      name: 'Steve Barron',
-      bio: "Steve Barron started in films as a camera assistant on epic productions such as Richard Donner's 'Superman', Richard Attenborough's 'A Bridge Too Far' and Ridley Scott's The Duellists (1977). He began directing music videos in the early eighties for The Jam, Human League, and Adam & the Ants, his work helping to inspire the formation of MTV. In 1982 he conceived and directed the award winning 'Billie-Jean' - the first single of Michael Jackson's incredible 'Thriller' album. More seminal videos followed. Dire Straits' 'Money for Nothing' won Best Video at the 1986 MTV Awards and A-Ha's 'Take On Me' was awarded Best Director. Steve's debut feature film was the music-led romantic comedy 'Electric Dreams' starring Virginia Madsen, released worldwide in 1984.",
-      birth: 'May 4, 1956'
-    },
-    imageURL: 'https://m.media-amazon.com/images/M/MV5BNzg3NTQ4NDk5NV5BMl5BanBnXkFtZTgwNzMzNDg4NjE@._V1_.jpg',
     featured: false
   },
 ];
