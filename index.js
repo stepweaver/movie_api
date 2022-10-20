@@ -1,13 +1,18 @@
+const { User } = require('./models');
+
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   uuid = require('uuid'),
   fs = require('fs'),
-  morgan = require('morgan');
+  morgan = require('morgan'),
+  mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use(express.static('public'));
+
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 let users = [
   {
@@ -238,16 +243,42 @@ let movies = [
 
 // CREATE
 app.post('/users', (req, res) => {
-  const newUser = req.body;
-
-  if (newUser.name) {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).json(newUser);
-  } else {
-    res.status(400).send("User's name not entered")
-  }
+  User.findOne({ username: req.body.username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.username + 'already exits');
+      } else {
+        User
+          .create({
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            birth: req.body.birth
+          })
+          .then((user) => { res.status(201).json(user) })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error: ' + error);
+          })
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
 });
+
+// app.post('/users', (req, res) => {
+//   const newUser = req.body;
+
+//   if (newUser.name) {
+//     newUser.id = uuid.v4();
+//     users.push(newUser);
+//     res.status(201).json(newUser);
+//   } else {
+//     res.status(400).send("User's name not entered")
+//   }
+// });
 
 app.post('/users/:id/:movieTitle', (req, res) => {
   const { id, movieTitle } = req.params;
