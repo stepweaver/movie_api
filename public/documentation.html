@@ -98,20 +98,38 @@
       </td>
     </tr>
     <tr>
+      <td>Return data about all users</td>
+      <td>/users</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about all users, structured like:<br />
+        {<br />
+          &nbsp &nbsp "_id": "ObjectId",<br />
+          &nbsp &nbsp "username": "username",<br />
+          &nbsp &nbsp "password": "password",<br />
+          &nbsp &nbsp "birth": "Date",<br />
+          &nbsp &nbsp "favoriteMovies": ["favoriteMovies"]<br />
+        }
+      </td>
+    </tr>
+    <tr>
       <td>Allow users to register</td>
       <td>/users</td>
       <td>POST</td>
       <td>A JSON object holding data about the new user to register, structured like:<br />
         {<br />
-          &nbsp &nbsp "name": "name",<br />
-          &nbsp &nbsp "favoriteMovies": ["movie"]<br />
+          &nbsp &nbsp "username": "username",<br />
+          &nbsp &nbsp "password": "passord",<br />
+          &nbsp &nbsp "email": "email"
         }
       </td>
       <td>A JSON object holding data about the new user registered, structured like:<br />
         {<br />
-          &nbsp &nbsp name: name,<br />
-          &nbsp &nbsp favoriteMovies: []<br />
-          &nbsp &nbsp id: [id]<br />
+          &nbsp &nbsp "username": "username",<br />
+          &nbsp &nbsp "password": "password",<br />
+          &nbsp &nbsp "email": "email",<br />
+          &nbsp &nbsp "favoriteMovies": ["favoriteMovies"],<br />
+          &nbsp &nbsp "_id": "ObjectId"<br />
         }
       </td>
     </tr>
