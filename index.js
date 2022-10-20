@@ -295,6 +295,17 @@ app.post('/users/:id/:movieTitle', (req, res) => {
 });
 
 // READ
+app.get('/users', (req, res) => {
+  User.find()
+    .then((users) => {
+      res.status(201).json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
 app.get('/movies', (req, res) => {
   res.status(200).json(movies)
 });
