@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use(express.static('public'));
 
+// Allows Mongoose to connect to myFlixDB to perform CRUD operations
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 let users = [
