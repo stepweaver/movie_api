@@ -1,5 +1,6 @@
 const { User, Movie } = require('./models');
 
+// Imports
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
@@ -8,12 +9,20 @@ const express = require('express'),
   morgan = require('morgan'),
   mongoose = require('mongoose');
 
+
+// Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 app.use(express.static('public'));
 
 // Allows Mongoose to connect to myFlixDB to perform CRUD operations
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+
+let auth = require('./auth')(app);
+
+const passport = require('passport');
+require('./passport');
 
 // CREATE
 app.post('/users', (req, res) => {
