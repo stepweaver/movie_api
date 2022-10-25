@@ -29,7 +29,7 @@ app.post('/users', (req, res) => {
   User.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.username + 'already exits');
+        return res.status(400).send(req.body.username + ' already exists');
       } else {
         User
           .create({
