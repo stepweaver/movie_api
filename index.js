@@ -19,11 +19,6 @@ app.use(express.static('public'));
 // Allows Mongoose to connect to myFlixDB to perform CRUD operations
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
-let auth = require('./auth')(app);
-
-const passport = require('passport');
-require('./passport');
-
 // CREATE
 app.post('/users', (req, res) => {
   User.findOne({ username: req.body.username })
