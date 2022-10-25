@@ -185,19 +185,6 @@ app.delete('/users/:username/movies/:MovieID', (req, res) => {
     });
 });
 
-// app.delete('/users/:id', (req, res) => {
-//   const { id } = req.params;
-
-//   let user = users.find(user => user.id == id);
-
-//   if (user) {
-//     users = users.filter(user => user.id != id);
-//     res.status(200).send(`User ${id}, ${user.name}, has been deregistered`);
-//   } else {
-//     res.status(404).send('User not found');
-//   }
-// });
-
 app.listen(8080, () => {
     console.log('Your app is listening on port 8080.');
   });
