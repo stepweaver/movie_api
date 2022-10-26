@@ -10,18 +10,19 @@ const express = require('express'),
   mongoose = require('mongoose'),
   path = require('path');
 
+let auth = require('./auth')(app);
+
+const cors = require('cors');
+app.use(cors());
+
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, 'log.txt'), { flags: 'a' });
-
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common', {stream: accessLogStream}));
 app.use(express.static('public'));
-
-
-let auth = require('./auth')(app);
 
 const passport = require('passport');
 require('./passport');
