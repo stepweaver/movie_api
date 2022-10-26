@@ -7,14 +7,19 @@ const express = require('express'),
   uuid = require('uuid'),
   fs = require('fs'),
   morgan = require('morgan'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  path = require('path');
+
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, 'log.txt'), { flags: 'a' });
 
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan('common'));
+app.use(morgan('common', {stream: accessLogStream}));
 app.use(express.static('public'));
+
 
 let auth = require('./auth')(app);
 
