@@ -8,15 +8,12 @@ const express = require('express'),
   fs = require('fs'),
   morgan = require('morgan'),
   mongoose = require('mongoose'),
+  cors = require('cors'),    
   path = require('path');
 
 let auth = require('./auth')(app);
-
 const cors = require('cors');
 app.use(cors());
-
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, 'log.txt'), { flags: 'a' });
 
 // Middleware
 app.use(bodyParser.json());
@@ -26,6 +23,9 @@ app.use(express.static('public'));
 
 const passport = require('passport');
 require('./passport');
+
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, 'log.txt'), { flags: 'a' });
 
 // Allows Mongoose to connect to myFlixDB to perform CRUD operations
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
