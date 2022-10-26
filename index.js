@@ -43,7 +43,8 @@ const accessLogStream = fs.createWriteStream(
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // CREATE
-app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/users', /* passport.authenticate('jwt', { session: false }),*/(req, res) => {
+  let hashedPassword = User.hashedPassword(req.body.password);
   User.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
