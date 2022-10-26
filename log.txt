@@ -1,0 +1,8 @@
+::1 - - [26/Oct/2022:01:31:28 +0000] "POST /login?username=testUser3&password=3167 HTTP/1.1" 400 49
+::1 - - [26/Oct/2022:01:31:45 +0000] "POST /login?username=testUser3&password=3167 HTTP/1.1" 400 49
+::1 - - [26/Oct/2022:01:33:26 +0000] "POST /login?username=testUser3&password=3167 HTTP/1.1" 400 49
+::1 - - [26/Oct/2022:01:33:47 +0000] "POST /login?username=testUser3&password=3167 HTTP/1.1" 400 49
+::1 - - [26/Oct/2022:01:33:55 +0000] "POST /login?username=testUser3&password=3167 HTTP/1.1" 400 49
+::1 - - [26/Oct/2022:01:34:15 +0000] "GET /movies HTTP/1.1" 401 -
+::1 - - [26/Oct/2022:01:35:04 +0000] "POST /users HTTP/1.1" 201 133
+::1 - - [26/Oct/2022:01:35:42 +0000] "POST /login?Username=testUser4&Password=5558 HTTP/1.1" 200 481
