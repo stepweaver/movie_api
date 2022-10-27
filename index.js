@@ -6,26 +6,14 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   uuid = require('uuid'),
   fs = require('fs'),
+  path = require('path'),
   morgan = require('morgan'),
-  mongoose = require('mongoose'),
-  cors = require('cors'),    
-  path = require('path');
-
+  mongoose = require('mongoose');
+  
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, 'log.txt'), { flags: 'a' });
+    
 let auth = require('./auth')(app);
-const cors = require('cors');
-
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
-
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn't found on the list of allowed origins
-      let message = `The CORS policy for this application doesn't allow access from origin ` + origin;
-      return callback(new Error(message), false);
-    }
-    return callback(null, true);
-  }
-}));
 
 // Middleware
 app.use(bodyParser.json());
@@ -36,8 +24,6 @@ app.use(express.static('public'));
 const passport = require('passport');
 require('./passport');
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, 'log.txt'), { flags: 'a' });
 
 // Allows Mongoose to connect to myFlixDB to perform CRUD operations
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });

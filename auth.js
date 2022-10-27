@@ -2,6 +2,7 @@ const jwtSecret = 'why_so_serious'; // This has to be the same key used in the J
 
 const jwt = require('jsonwebtoken'),
   passport = require('passport');
+const { User } = require('./models');
 
 require('./passport'); // local passport file
 
