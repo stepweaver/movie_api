@@ -15,21 +15,25 @@ const accessLogStream = fs.createWriteStream(
     
 let auth = require('./auth')(app);
 
+let auth = require('./auth')(app);
+
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common', {stream: accessLogStream}));
 app.use(express.static('public'));
 
+// Allows Mongoose to connect to myFlixDB to perform CRUD operations
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+
 const passport = require('passport');
 require('./passport');
 
 
-// Allows Mongoose to connect to myFlixDB to perform CRUD operations
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // CREATE
-app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/users', passport.authenticate('jwt', { session: false }),(req, res) => {
+  let hashedPassword = User.hashedPassword(req.body.password);
   User.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
