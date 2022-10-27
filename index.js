@@ -12,8 +12,6 @@ const express = require('express'),
   
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, 'log.txt'), { flags: 'a' });
-    
-let auth = require('./auth')(app);
 
 let auth = require('./auth')(app);
 
@@ -28,8 +26,6 @@ mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, 
 
 const passport = require('passport');
 require('./passport');
-
-
 
 // CREATE
 app.post('/users', passport.authenticate('jwt', { session: false }),(req, res) => {
