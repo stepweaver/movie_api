@@ -85,3 +85,7 @@
 ::1 - - [26/Oct/2022:03:32:09 +0000] "DELETE /users/Stephen%20Weaver/movies/634edb9f6643de8383f5da69 HTTP/1.1" 401 -
 ::1 - - [26/Oct/2022:03:32:40 +0000] "POST /login?Username=Stephen%20Weaver&Password=1234 HTTP/1.1" 200 812
 ::1 - - [26/Oct/2022:03:33:22 +0000] "DELETE /users/Stephen%20Weaver/movies/634edb9f6643de8383f5da69 HTTP/1.1" 200 40
+::1 - - [27/Oct/2022:02:42:20 +0000] "POST /users HTTP/1.1" 500 1314
+::1 - - [27/Oct/2022:02:43:31 +0000] "POST /users HTTP/1.1" 500 1314
+::1 - - [27/Oct/2022:02:44:50 +0000] "POST /users HTTP/1.1" 500 1314
+::1 - - [27/Oct/2022:02:45:08 +0000] "POST /users HTTP/1.1" 201 141
