@@ -39,6 +39,7 @@ app.use(express.static('public'));
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const passport = require('passport');
+const { application } = require('express');
 require('./passport');
 
 // CREATE
@@ -236,6 +237,7 @@ app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt', { se
     });
 });
 
-app.listen(8080, () => {
-    console.log('Your app is listening on port 8080.');
-  });
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0', () => {
+  console.log('Listening on Port ' + port);
+});
