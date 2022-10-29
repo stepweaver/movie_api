@@ -1,0 +1,12 @@
+{"_id":{"$oid":"6359e133342d5d771154a6f5"},"username":"stephenWeaver","password":"5558","email":"stephenWeaver@gmail.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359eab04b399496d3035ddf"},"username":"jamesBond","password":"007","email":"bond@mi6.gov.uk","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359eb764b399496d3035de3"},"username":"neo","password":"bluePill","email":"the1@matrix.mov","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359eba14b399496d3035de7"},"username":"dannyOcean","password":"eleven","email":"do@bellagio.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359ed1688e6ce7fd36e5874"},"username":"joker","password":"putASmileOn!","email":"HahAhahAH@hahahaAHAhahah.HAH","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359f0b48ec3df5490b250b8"},"username":"theBatman","password":"bruceWayne","email":"alfred@thebatcave.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359f17d7895c00ffc6d9e6a"},"username":"tylerDurder","password":"whoAmI?","email":"figclub@secret.shh","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359faa197b059ecf0f7ff29"},"username":"terminator","password":"$2b$10$2iyxKGOt5QmvepPg2kMXcO0/EvCvwOAt51AGTHExhC0UofP6.gG0u","email":"hastalavista@skynet.gov","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359fb2a97b059ecf0f7ff2c"},"username":"brockSamson","password":"$2b$10$NC.Yfe7Ods25WfFDfMP4m.NzfsVMNgC.V1kSCAKzaf4p9jvMV9ike","email":"bs@cn.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6359fb5697b059ecf0f7ff2f"},"username":"stepweaver","password":"$2b$10$0UL2ldKuaKGs1DmODZmWQu3APTClsCe5UMw4UG5aE3xeOgoOhCXma","email":"email@email.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"635c2e0d917595feb4a8441f"},"username":"uncleRoger","password":"$2b$10$6hUxVrSagJxjLn64pQC9jeV6M9qgkE22Yj381zmc1QCFr9FQUcVwW","email":"gmail@yahoo.com","favoriteMovies":[],"__v":0}
+{"_id":{"$oid":"635c34033f28325cd3de8cea"},"username":"strongBad","password":"$2b$10$UCAJ2WdUDKfNTfi8wfkKeeX8tPs3B/q1sih2ryHvEjJrgrb8Msu9q","email":"sbemail@email.com","favoriteMovies":[],"__v":0}
