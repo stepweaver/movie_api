@@ -11,13 +11,13 @@ const express = require('express'),
   morgan = require('morgan'),
   mongoose = require('mongoose');
 
-const { check, validationResult } = require('express-validator');
-
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), { flags: 'a' });
-
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
-app.use(cors({
-  origin: (origin, callback) => {
+  const { check, validationResult } = require('express-validator');
+  
+  const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), { flags: 'a' });
+  
+  let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+  app.use(cors({
+    origin: (origin, callback) => {
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) === -1) {
       let message = `The CORS policy for this application doesn't allow access from origin ` + origin;
@@ -26,7 +26,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-    
+
 let auth = require('./auth')(app);
 
 // Middleware
