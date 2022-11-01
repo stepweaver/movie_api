@@ -140,13 +140,13 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
 });
 
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movie.findOne({ title: req.params.title })
+  Movie.findOne({ 'title': req.params.title })
     .then((movie) => {
       res.status(200).json(movie);
     })
     .catch((err) => {
       console.error(err);
-      res.status(404).send('Movie not found.');
+      res.status(404).send('Error: ' + err);
     });
 });
 
