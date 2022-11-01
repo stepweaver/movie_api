@@ -154,7 +154,7 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
   Movie.findOne({ 'genre.name': req.params.name })
     .then((genre) => {
       if (!genre) {
-        res.status(404).send(req.params.name + ' genre not found.');
+        res.status(404).send('Genre not found.');
       } else {
         res.status(200).send(req.params.name);
       }
