@@ -135,7 +135,7 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
     })
     .catch((err) => {
       console.error(err);
-      res.status(404).send('Error: ' + err);
+      res.status(404).send('User not found.');
     });
 });
 
