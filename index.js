@@ -152,7 +152,7 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
 
 app.get('/movies/genre/:genreName', passport.authenticate('jwt', { session: false }), (req, res) => {
   const { genreName } = req.params;
-  const genre = movies.find(movie => movies.genre.name === genreName).genre;
+  const genre = Movie.findOne(movie => movies.genre.name === genreName).genre;
   
   if (genre) {
     res.status(200).json(genre);
