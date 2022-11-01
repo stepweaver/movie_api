@@ -162,14 +162,14 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
 });
 
 app.get('/movies/director/:directorName', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const { directorName } = req.params;
-  const director = movies.find(movie => movie.director.name === directorName).director;
-
-  if (director) {
-    res.status(200).json(director);
-  } else {
-    res.status(404).send('Director not found');
-  }
+  Movie.findOne({ 'movie.director': req.params.director })
+    .then((movie) => {
+      res.status(200).json(movie.director);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(404).send('Director not found.');
+    });
 });
 
 // UPDATE
