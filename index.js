@@ -157,7 +157,7 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
     })
     .catch((err) => {
       console.error(err);
-      res.status(404).send('Genre not found.' + err);
+      res.status(404).send('Genre not found.');
     });
 });
 
