@@ -146,7 +146,7 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
     })
     .catch((err) => {
       console.error(err);
-      res.status(404).send('Error: ' + err);
+      res.status(404).send('Movie not found.');
     });
 });
 
