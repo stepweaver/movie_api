@@ -1,14 +1,1 @@
 mongoimport --uri mongodb+srv://stepweaver:lexie@cluster0.xspbkm0.mongodb.net/myFlixDB --collection movies --type json --file C:\Users\sweaver1\movie_api\movies.json
-
-    .then((genre) => {
-      if (!genre) {
-        res.status(404).send('Genre not found.');
-      } else {
-        res.status(200).send(req.params.name);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('Error: ' + err);
-    });
-});
