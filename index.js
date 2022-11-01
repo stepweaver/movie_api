@@ -152,8 +152,8 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
 
 app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movie.findOne({ 'genre.name': req.params.name })
-    .then((genre) => {
-      res.status(200).json(genre);
+    .then((movie) => {
+      res.status(200).json(movie.genre);
     })
     .catch((err) => {
       console.error(err);
