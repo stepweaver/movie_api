@@ -130,8 +130,8 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 
 app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
   User.findOne({ username: req.params.username })
-    .then((users) => {
-      res.status(200).json(users);
+    .then((poop) => {
+      res.status(200).json(poop);
     })
     .catch((err) => {
       console.error(err);
