@@ -92,11 +92,10 @@ app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { sess
   },
     { new: true },
     (err, updatedUser) => {
-      if (err) {
-        console.error(err);
-        res.status(404).send('Error: ' + err);
+      if (err, !updatedUser) {
+        res.status(404).send("Uh oh! Movie not found.");
       } else {
-        res.status(200).json(updatedUser);
+        res.status(200).json(updatedUser.favoriteMovies);
       }
     });
 });
