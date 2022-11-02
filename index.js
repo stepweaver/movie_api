@@ -136,7 +136,6 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
       } else {
         res.status(200).json(user);
       }
-      res.status(200).json(user);
     });
   });
 
