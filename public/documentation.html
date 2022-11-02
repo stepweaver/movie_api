@@ -36,7 +36,7 @@
           &nbsp &nbsp "username": "username",<br />
           &nbsp &nbsp "password": "passord",<br />
           &nbsp &nbsp "email": "email",<br />
-          &nbsp &nbsp "birth": "MM/DD/YYY"<br />
+          &nbsp &nbsp "birth": "MM/DD/YYYY"<br />
         }
       </td>
       <td>A JSON object holding data about the new user created, structured like:<br />
@@ -45,7 +45,7 @@
           &nbsp &nbsp "password": "passord",<br />
           &nbsp &nbsp "email": "email",<br />
           &nbsp &nbsp "birth": "MM/DD/YYY",<br />
-          &nbsp &nbsp "favoriteMovies": [],<br />
+          &nbsp &nbsp "favoriteMovies": ["favoriteMovies"],<br />
           &nbsp &nbsp "_id": "ObjecId"<br />
         }
       </td>
@@ -68,9 +68,9 @@
           &nbsp &nbsp "director": {<br />
             &nbsp &nbsp &nbsp &nbsp "name": "name",<br />
             &nbsp &nbsp &nbsp &nbsp "bio": "bio",<br />
-            &nbsp &nbsp &nbsp &nbsp "birth": "Date"<br />
+            &nbsp &nbsp &nbsp &nbsp "birth": "MM/DD/YYYY"<br />
           &nbsp &nbsp },<br />
-          &nbsp &nbsp "actors": ["actors"]
+          &nbsp &nbsp "actors": ["actors"],<br />
           &nbsp &nbsp "imageURL": "imageURL",<br />
           &nbsp &nbsp "featured": true/false<br />
         }
@@ -94,9 +94,10 @@
           &nbsp &nbsp "director": {<br />
             &nbsp &nbsp &nbsp &nbsp "name": "name",<br />
             &nbsp &nbsp &nbsp &nbsp "bio": "bio",<br />
-            &nbsp &nbsp &nbsp &nbsp "birth": "Date"<br />
+            &nbsp &nbsp &nbsp &nbsp "birth": "MM/DD/YYYY"<br />
           &nbsp &nbsp },<br />
           &nbsp &nbsp "imageURL": "imageURL",<br />
+          &nbsp &nbsp "actors": ["actors"],<br />
           &nbsp &nbsp "featured": true/false<br />
         }
       </td>
@@ -125,7 +126,7 @@
           &nbsp &nbsp director: {<br />
             &nbsp &nbsp &nbsp &nbsp "name": "name",<br />
             &nbsp &nbsp &nbsp &nbsp "bio": "bio",<br />
-            &nbsp &nbsp &nbsp &nbsp "birth": "Date"<br />
+            &nbsp &nbsp &nbsp &nbsp "birth": "MM/DD/YYYY"<br />
           &nbsp &nbsp }<br />
         }
       </td>
@@ -140,7 +141,7 @@
           &nbsp &nbsp "_id": "ObjectId",<br />
           &nbsp &nbsp "username": "username",<br />
           &nbsp &nbsp "password": "password",<br />
-          &nbsp &nbsp "birth": "Date",<br />
+          &nbsp &nbsp "birth": "MM/DD/YYYY",<br />
           &nbsp &nbsp "favoriteMovies": ["favoriteMovies"]<br />
         }
       </td>
@@ -180,7 +181,7 @@
         &nbsp &nbsp &nbsp &nbsp "password": hashedPassword,<br />
         &nbsp &nbsp &nbsp &nbsp "email": "email",<br />
         &nbsp &nbsp &nbsp &nbsp "brith": "Date",<br />
-        &nbsp &nbsp &nbsp &nbsp "favoriteMovies": []<br />
+        &nbsp &nbsp &nbsp &nbsp "favoriteMovies": ["favoriteMovies"]<br />
         &nbsp &nbsp },<br />
         &nbsp &nbsp "token": "JWT"<br />
         }
