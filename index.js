@@ -140,12 +140,14 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 // });
 
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movie.findOne({ title: req.params.title })
-  if (Movie) {
-    res.status(200).json(movie);
-  } else {
-    res.status(404).send('Movie not found.');
-  };
+  Movie.findOne({ 'title': req.params.title })
+    .then((movie) => {
+      res.status(200).json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(404).send('Error: ' + err);
+    });
 });
 
 app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
