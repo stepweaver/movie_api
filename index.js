@@ -215,10 +215,6 @@ app.delete('/users/:username', passport.authenticate('jwt', { session: false }),
       } else {
         res.status(200).send(req.params.username + ' has been deregistered');
       }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('Error: ' + err);
     });
 });
 
