@@ -120,11 +120,11 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   User.find()
     .then((users) => {
-      res.status(200).json(users);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('Error: ' + err);
+      if (!users) {
+        res.status(404).send("Oops! You weren't supposed to see this.");
+      } else {
+        res.status(200).json(users);
+      }
     });
 });
 
