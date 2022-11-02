@@ -162,13 +162,13 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
 });
 
 app.get('/movies/director/:directorName', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movie.findOne({ 'movie.director': req.params.director })
+  Movie.findOne({ 'director.name': req.params.name })
     .then((movie) => {
-      res.status(200).json(movie.director);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('Director not found.');
+      if (!movie) {
+        res.status(404).send("Dave's not here! Director not found.");
+      } else {
+        res.status(200).json(movie.director);
+      }
     });
 });
 
