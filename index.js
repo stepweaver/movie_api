@@ -120,11 +120,11 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   User.find()
     .then((users) => {
-      if (!users) {
-        res.status(404).send("Oops! You weren't supposed to see this.");
-      } else {
-        res.status(200).json(users);
-      }
+      res.status(200).json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(404).send('Error: ' + err);
     });
 });
 
@@ -153,11 +153,11 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
 app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movie.findOne({ 'genre.name': req.params.name })
     .then((movie) => {
-      res.status(200).json(movie.genre);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('Genre not found.');
+      if (!movie) {
+        res.status(404).send('Whoops! Genre not found.');
+      } else {
+        res.status(200).json(movie.genre);
+      }
     });
 });
 
