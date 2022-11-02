@@ -199,7 +199,7 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }),
     }
   },
     { new: true }, // This line returns the updated document
-    (err, updatedUser) => {
+    (_err, updatedUser) => {
       if (!updatedUser) {
         res.status(404).send("Dave's not here. User not found.");
       } else {
