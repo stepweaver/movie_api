@@ -141,8 +141,8 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movie.findOne({ title: req.params.title })
-  if (movie) {
-    res.status(200).json(movie);
+  if (Movie) {
+    res.status(200).json(Movie);
   } else {
     res.status(404).send('Movie not found.');
   };
