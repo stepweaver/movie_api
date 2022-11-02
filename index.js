@@ -95,7 +95,7 @@ app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { sess
       if (err, !updatedUser) {
         res.status(404).send("Uh oh! Movie not found.");
       } else {
-        res.status(200).json(updatedUser.favoriteMovies);
+        res.status(200).json('Movie ' + updatedUser.favoriteMovies + ' has added to' + updatedUser.username + "'s favorite movies.");
       }
     });
 });
