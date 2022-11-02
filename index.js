@@ -231,7 +231,7 @@ app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt', { se
       if (err, !updatedUser) {
         res.status(404).send("Uh oh! Movie not found.");
       } else {
-        res.status(200).send("Movie deleted from user's favorite Movies.");
+        res.status(200).send('Movie deleted from' + updatedUser.username + "'s favorite Movies.");
       }
     });
 });
