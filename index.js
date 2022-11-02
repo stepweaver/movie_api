@@ -200,7 +200,7 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }),
   },
     { new: true }, // This line returns the updated document
     (err, updatedUser) => {
-      if (err === null ) {
+      if (null) {
         console.error(err);
         res.status(404).send('Error: ' + err);
       } else {
