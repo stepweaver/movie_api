@@ -128,19 +128,19 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
     });
 });
 
-app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
-  User.findOne({ username: req.params.username })
-    .then((user) => {
-      res.status(200).json(user);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(404).send('User not found.');
-    });
-});
+// app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
+//   User.findOne({ username: req.params.username })
+//     .then((user) => {
+//       res.status(200).json(user);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.status(404).send('User not found.');
+//     });
+// });
 
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movie.findOne({ title: req.params.title })
+  Movie.findOne({ 'title': req.params.title })
     .then((movie) => {
       res.status(200).json(movie);
     })
