@@ -43,7 +43,6 @@ app.get('/documentation', (req, res) => {
 mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const passport = require('passport');
-const { restart } = require('nodemon');
 require('./passport');
 
 // CREATE
@@ -198,14 +197,15 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }),
       birth: req.body.birth
     }
   },
-    { new: true } // This line returns the updated document
-    .then((updatedUser) => {
-      if (!updatedUser) {
-        res.status(404).send("Dave's not here! User not found.");
+    { new: true }, // This line returns the updated document
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(404).send('Error: ' + err);
       } else {
         res.status(200).json(updatedUser);
       }
-    }));
+    });
 });
 
 // DELETE
