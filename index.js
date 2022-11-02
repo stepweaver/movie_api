@@ -161,7 +161,7 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
     });
 });
 
-app.get('/movies/director/:directorName', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/director/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movie.findOne({ 'director.name': req.params.name })
     .then((movie) => {
       if (!movie) {
