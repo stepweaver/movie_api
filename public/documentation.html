@@ -28,6 +28,29 @@
       <td>Welcome to MyFlix!</td>
     </tr>
     <tr>
+      <td>Create new user</td>
+      <td>/users</td>
+      <td>POST</td>
+      <td>A JSON object holding data about the new user to be added, structured like:<br />
+        {<br />
+          &nbsp &nbsp "username": "username",<br />
+          &nbsp &nbsp "password": "passord",<br />
+          &nbsp &nbsp "email": "email",<br />
+          &nbsp &nbsp "birth": "MM/DD/YYY"<br />
+        }
+      </td>
+      <td>A JSON object holding data about the new user created, structured like:<br />
+        {<br />
+          &nbsp &nbsp "username": "username",<br />
+          &nbsp &nbsp "password": "passord",<br />
+          &nbsp &nbsp "email": "email",<br />
+          &nbsp &nbsp "birth": "MM/DD/YYY",<br />
+          &nbsp &nbsp "favoriteMovies": [],<br />
+          &nbsp &nbsp "_id": "ObjecId"<br />
+        }
+      </td>
+    </tr>
+    <tr>
       <td>Return a list of ALL movies to the user</td>
       <td>/movies</td>
       <td>GET</td>
