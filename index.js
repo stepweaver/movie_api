@@ -198,14 +198,14 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }),
       birth: req.body.birth
     }
   },
-    { new: true }, // This line returns the updated document
-    (updatedUser) => {
+    { new: true } // This line returns the updated document
+    .then((updatedUser) => {
       if (!updatedUser) {
         res.status(404).send("Dave's not here! User not found.");
       } else {
         res.status(200).json(updatedUser);
       }
-    });
+    }));
 });
 
 // DELETE
