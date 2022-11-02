@@ -95,7 +95,7 @@ app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { sess
       if (err, !updatedUser) {
         res.status(404).send("Uh oh! Movie not found.");
       } else {
-        res.status(200).json('Movie has been added to ' + updatedUser.username + "'s favorite movies.");
+        res.status(200).send('Movie has been added to ' + req.params.username + "'s favorite movies.");
       }
     });
 });
@@ -227,7 +227,7 @@ app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt', { se
       if (err, !updatedUser) {
         res.status(404).send("Uh oh! Movie not found.");
       } else {
-        res.status(200).send('Movie deleted from ' + updatedUser.username + "'s favorite Movies.");
+        res.status(200).send('Movie deleted from ' + req.params.username + "'s favorite Movies.");
       }
     });
 });
