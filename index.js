@@ -147,10 +147,6 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
       } else {
         res.status(200).json(movie);
       }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
     });
 });
 
