@@ -1,1 +1,0 @@
-mongoimport --uri mongodb+srv://stepweaver:lexie@cluster0.xspbkm0.mongodb.net/myFlixDB --collection movies --type json --file C:\Users\sweaver1\movie_api\movies.json
