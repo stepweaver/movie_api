@@ -138,7 +138,7 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
     });
   });
 
-app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/:title', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
   Movie.findOne({ title: req.params.title })
     .then((movie) => {
       if (!movie) {
