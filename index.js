@@ -232,7 +232,7 @@ app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt', { se
     });
 });
 
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
   console.log('Listening on Port ' + port);
 });
