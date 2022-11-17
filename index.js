@@ -15,7 +15,7 @@ const express = require('express'),
   
   const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), { flags: 'a' });
   
-//   let allowedOrigins = ['http://localhost:8080', 'http://cthulhu8080.herkouapp.com', 'http://localhost:1234']
+//   let allowedOrigins = ['http://localhost:8080', 'http://cthulhu8080.herkouapp.com']
 //   app.use(cors({
 //     origin: (origin, callback) => {
 //     if (!origin) return callback(null, true);
@@ -105,7 +105,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to MyFlix!');
 });
 
-app.get('/movies', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movie.find()
     .then((movies) => {
       res.status(200).json(movies);
