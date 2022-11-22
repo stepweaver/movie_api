@@ -15,7 +15,7 @@ const express = require('express'),
   
   const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), { flags: 'a' });
   
-  let allowedOrigins = ['http://localhost:8080', 'http://cthulhu8080.herkouapp.com', 'http://localhost:1234']
+  let allowedOrigins = ['http://localhost:8080', 'http://cthulhuflix.herkouapp.com', 'http://localhost:1234']
   app.use(cors({
     origin: (origin, callback) => {
     if (!origin) return callback(null, true);
