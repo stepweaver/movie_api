@@ -48,7 +48,7 @@ const passport = require('passport');
 require('./passport');
 
 // CREATE
-app.post('/users',
+app.post('/register',
   [
     check('username', 'Username is required').isLength({ min: 5 }),
     check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
