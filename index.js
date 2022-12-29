@@ -15,19 +15,19 @@ const express = require('express'),
   
   const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), { flags: 'a' });
 
-  app.use(cors());
+  // app.use(cors());
   
-//   let allowedOrigins = ['http://localhost:8080', 'http://cthulhuflix.herkouapp.com', 'http://localhost:1234']
-//   app.use(cors({
-//     origin: (origin, callback) => {
-//     if (!origin) return callback(null, true);
-//     if (allowedOrigins.indexOf(origin) === -1) {
-//       let message = `The CORS policy for this application doesn't allow access from origin ` + origin;
-//       return callback(new Error(message), false);
-//     }
-//     return callback(null, true);
-//   }
-// }));
+  let allowedOrigins = ['http://localhost:8080', 'http://cthulhuflix.onrender.com', 'http://localhost:1234']
+  app.use(cors({
+    origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      let message = `The CORS policy for this application doesn't allow access from origin ` + origin;
+      return callback(new Error(message), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 let auth = require('./auth')(app);
 
